@@ -3,24 +3,13 @@ import org.springframework.data.annotation.Id;
 
 public class Persona {
 	@Id
-	private int id;
+	public String id;
 	private String nombre;
-	private String apellido;
-	public String getApellido() {
-		return apellido;
-	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+	private String lastName;
 	public Persona() {}
-	public Persona(String nombre) {
+	public Persona(String nombre, String lastName) {
 		this.nombre=nombre;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
+		this.lastName=lastName;
 	}
 	public String getNombre() {
 		return nombre;
@@ -28,5 +17,17 @@ public class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	@Override
+    public String toString() {
+        return String.format(
+                "Persona[id=%s, nombre='%s', lastName='%s']",
+                id, nombre, lastName);
+    }
 
 }
